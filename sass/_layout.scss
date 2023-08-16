@@ -1,1 +1,127 @@
-@import './mixins';
+@import "./mixins";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.fullPage {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d6e2e9;
+  // dictionary app =========>>
+  .dicApp {
+    width: 400px;
+    background-color: #fff;
+    padding: 25px 30px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    border-radius: 15px;
+
+    h2 {
+      color: rgb(7, 181, 82);
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+      text-transform: upperCase;
+    }
+
+    .appInput {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+
+      input {
+        padding: 10px 13px;
+        border: 1px solid green;
+        outline: none;
+        border-radius: 25px;
+        background-color: #f3f1fc;
+        font-size: 15px;
+        width: 100%;
+        height: 45px;
+        &::placeholder {
+          color: black;
+          font-weight: 600;
+        }
+        color: black;
+        font-weight: 600;
+      }
+
+      .searchBtn {
+        cursor: pointer;
+        height: 45px;
+        width: 45px;
+        background-color: rgb(7, 181, 82);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: -45px;
+      }
+    }
+
+    .data {
+      width: 100%;
+      overflow-y: scroll;
+      max-height: 230px;
+      display: flex;
+      flex-direction: column;
+      li {
+        list-style: none;
+      }
+      &::-webkit-scrollbar {
+        background: transparent;
+        width: 10px;
+      }
+      &::-webkit-scrollbar-thumb {
+        height: 10px;
+        background: rgb(7, 181, 82);
+        border-radius: 10px;
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        // opacity: 0.8;
+        background-color: #008c72;
+      }
+      #pressEnterWord {
+        color: rgb(7, 181, 82);
+        font-size: 17px;
+        text-transform: capitalize;
+      }
+
+      #errorWord {
+        color: red;
+        font-size: 17px;
+        text-transform: capitalize;
+        span {
+          color: rgb(7, 181, 82);
+          font-weight: bold;
+        }
+      }
+
+      .details {
+        height: auto;
+        width: 100%;
+        padding: 10px;
+        background-color: #f3f3fd;
+        border-radius: 10px;
+        border: 1px solid #00bc6230;
+        margin: 5px 0;
+        position: relative;
+
+        h3 {
+          color: rgb(7, 181, 82)
+        }
+
+        p {
+          font-size: 12px;
+          margin: 4px 0;
+        }
+      }
+    }
+  }
+}
