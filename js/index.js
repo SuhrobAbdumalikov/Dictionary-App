@@ -3,8 +3,91 @@ const searchBtn = document.querySelector(".searchBtn");
 const allData = document.querySelector("#allData");
 const soundIcon = document.querySelector("#soundIcon");
 const sound = document.querySelector("#sound");
+const readMoreBtn = document.querySelector("#readMore");
+const appInput = document.querySelector(".appInput");
+const checkWifi = document.querySelector(".checkWifi");
+const wifiIcon = document.querySelector(".wifiIcon");
+const titleWifi = document.querySelector("#title");
+const pTitle = document.querySelector("#pTitle");
+const reconnectBtn = document.querySelector("#reconnectBtn");
 
-//  ====>> APi URL <<====== //
+// ======>> check connection <<=========
+// if (navigator.onLine) {
+//   console.log("oneline");
+//   checkWifi.style.marginTop = 0;
+//   checkWifi.style.visibility = "visible";
+//   checkWifi.style.borderTop = "3px solid #26b126";
+//   wifiIcon.style.backgroundColor = "#26b126";
+//   titleWifi.textContent = "You are now online";
+//   reconnectBtn.style.backgroundColor = "#26b126";
+//   reconnectBtn.textContent = "Restore";
+//   return setTimeout(() => {
+//     checkWifi.style.marginTop = 0;
+//     checkWifi.style.visibility = "visible";
+//   }, 5000);
+// } else {
+//   console.log("offnline");
+//   checkWifi.classList.remove("online");
+//   checkWifi.classList.add("show");
+// }
+
+if (navigator.onLine) {
+  setTimeout(() => {
+    checkWifi.style.marginTop = 0;
+    checkWifi.style.visibility = "visible";
+    titleWifi.textContent = "Online";
+    checkWifi.style.borderTop = "3px solid #26b126";
+    wifiIcon.style.backgroundColor = "#26b126";
+    titleWifi.textContent = "You are now online";
+    reconnectBtn.style.backgroundColor = "#26b126";
+    reconnectBtn.textContent = "Restore";
+  }, 1000);
+}
+// }else{
+//   setTimeout(() => {
+//     checkWifi.style.marginTop = '-25%';
+//     checkWifi.style.visibility = "hidden";
+//     titleWifi.textContent = "Online";
+//     checkWifi.style.borderTop = "3px solid #26b126";
+//     wifiIcon.style.backgroundColor = "#26b126";
+//     titleWifi.textContent = "You are now online";
+//     reconnectBtn.style.backgroundColor = "#26b126";
+//     reconnectBtn.textContent = "Restore";
+//   }, 2000);
+// }
+
+window.addEventListener("online", () => {
+  setTimeout(() => {
+    checkWifi.style.marginTop = "0";
+    checkWifi.style.visibility = "visible";
+    checkWifi.style.borderTop = "3px solid #26b126";
+    wifiIcon.style.backgroundColor = "#26b126";
+    titleWifi.textContent = "You are now online";
+    reconnectBtn.style.backgroundColor = "#26b126";
+    reconnectBtn.textContent = "Restore";
+  }, 1000);
+});
+
+window.addEventListener("offline", () => {
+  setTimeout(() => {
+    checkWifi.style.marginTop = "0";
+    checkWifi.style.visibility = "visible";
+    titleWifi.textContent = "You are offline now";
+    checkWifi.style.borderTop = "3px solid red";
+    wifiIcon.style.backgroundColor = "red";
+    reconnectBtn.style.backgroundColor = "red";
+    reconnectBtn.textContent = "Reconnect";
+  }, 1000);
+});
+
+reconnectBtn.addEventListener("click", () => {
+  if (reconnectBtn.textContent === "Restore") {
+    checkWifi.style.marginTop = "-25%";
+    checkWifi.style.visibility = "hidden";
+  }
+});
+
+//  ====>> APi URL and Dictionary App <<====== //
 function AllInformation() {
   const APiURl = `https://api.dictionaryapi.dev/api/v2/entries/en/${searchInput.value}`;
   fetch(APiURl)
@@ -39,9 +122,13 @@ function AllInformation() {
               newData[0].meanings[0].partOfSpeech
             }]</strong></em></p>
         </li>
+           <li class="readBtnLi"><a href="${
+             newData[0].sourceUrls
+           }" id="readMore">Read More</a></li>
     </ul> `;
       console.log(newData);
       sound.setAttribute("src", `${newData[0].phonetics[1].audio}`);
+      searchInput.value = "";
     })
     .catch((error) => {
       allData.innerHTML = `<p id="errorWord">can't find the meaning of <span>${searchInput.value}</span>. Please Search again!</p>`;
@@ -52,47 +139,19 @@ function playSound() {
   sound.play();
 }
 
+searchInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter" && e.value !== "") {
+    AllInformation();
+  } else {
+    // allData.innerHTML = `<p id="pressEnterWord">Type Any Word & pres enter to get meaning</p>`;
+  }
+});
+
 searchBtn.addEventListener("click", () => {
   if (searchInput.value !== "") {
     AllInformation();
+    localStorage.setItem("fullInformation", searchInput.value);
   } else {
     allData.innerHTML = `<p id="pressEnterWord">Type Any Word & pres enter to get meaning</p>`;
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-//   const ul = document.createElement("ul");
-//   const li1 = document.createElement("li");
-//   const li2 = document.createElement("li");
-//   const h3 = document.createElement("h3");
-//   const p = document.createElement("p");
-
-//   //li1
-//   li1.appendChild(h3);
-//   li1.appendChild(p);
-//   li1.setAttribute("class", "details");
-//   h3.textContent = 'WORD';
-//   p.textContent = newData[0].word;
-
-//   //li2
-//   li2.appendChild(h3);
-//   li2.appendChild(p);
-//   li2.setAttribute("class", "details");
-//   h3.textContent = 'DEFINITION';
-//   p.textContent = newData[0].meanings[0].definitions[0].definition;
-
-//   ul.appendChild(li1);
-//   ul.appendChild(li2);
-//   allData.appendChild(ul);
-//   console.log(ul);

@@ -5,15 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./sass/style/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
     <script
       src="https://kit.fontawesome.com/f35ca9bb4a.js"
       crossorigin="anonymous"
     ></script>
     <title>Dictionary App</title>
+    <style>
+      h1{
+        /* visibility: visible; */
+        color: #26b126;
+      }
+    </style>
   </head>
   <body>
     <audio id="sound"></audio>
     <div class="fullPage">
+      <!-- Check online or offline -->
+      <div class="checkWifi">
+        <div class="wifiIcon">
+          <i class="uil uil-wifi-slash"></i>
+        </div>
+        <div class="checkContent">
+          <h3 id="title">You are offline now</h3>
+          <p id="pTitle">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non,<br>
+            maxime dolores deserunt animi <br> maiores numquam nemo molestiae 
+          </p>
+          <button id="reconnectBtn">Reconnect</button>
+        </div>
+      </div>
+      <!-- ==================== -->
+      <!-- Dictionary app -->
       <div class="dicApp">
         <h2>Dictionary App</h2>
         <div class="appInput">
@@ -22,8 +48,11 @@
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
         </div>
-        <div class="data" id="allData"></div>
+        <div class="data" id="allData">
+          <p id="pressEnterWord">Type Any Word & pres enter to get meaning</p>
+        </div>
       </div>
+      <!-- ========== -->
     </div>
     <script src="./js/index.js"></script>
   </body>

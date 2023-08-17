@@ -12,6 +12,66 @@
   justify-content: center;
   background-color: #d6e2e9;
 }
+.fullPage .checkWifi {
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border-top: 3px solid red;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 10px;
+  margin-top: -25%;
+  visibility: hidden;
+  transition: all 0.7s ease;
+  position: absolute;
+  top: 10px;
+}
+.fullPage .checkWifi .show {
+  margin-top: 0px;
+  visibility: visible;
+}
+.fullPage .checkWifi .wifiIcon {
+  background-color: red;
+  color: white;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 20px;
+}
+.fullPage .checkWifi .checkContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.fullPage .checkWifi .checkContent h3 {
+  font-size: 20px;
+}
+.fullPage .checkWifi .checkContent p {
+  font-size: 14px;
+  color: #666;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.fullPage .checkWifi .checkContent button {
+  width: 100px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  border-radius: 7px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.fullPage .checkWifi .checkContent button:active {
+  transform: scale(0.95);
+}
+.fullPage .checkWifi .checkContent button:hover {
+  opacity: 0.8;
+}
 .fullPage .dicApp {
   width: 400px;
   background-color: #fff;
@@ -87,7 +147,7 @@
 }
 .fullPage .dicApp .data #pressEnterWord {
   color: rgb(7, 181, 82);
-  font-size: 17px;
+  font-size: 16px;
   text-transform: capitalize;
 }
 .fullPage .dicApp .data #errorWord {
@@ -98,6 +158,27 @@
 .fullPage .dicApp .data #errorWord span {
   color: rgb(7, 181, 82);
   font-weight: bold;
+}
+.fullPage .dicApp .data #readMore {
+  cursor: pointer;
+  background-color: rgb(7, 181, 82);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.fullPage .dicApp .data #readMore:active {
+  transform: scale(0.95);
+}
+.fullPage .dicApp .data #readMore:hover {
+  opacity: 0.8;
+}
+.fullPage .dicApp .data .readBtnLi {
+  margin-top: 15px;
 }
 .fullPage .dicApp .data .details {
   height: auto;

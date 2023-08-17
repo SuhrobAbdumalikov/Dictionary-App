@@ -12,6 +12,69 @@
   align-items: center;
   justify-content: center;
   background-color: #d6e2e9;
+
+  // check online or offline =======>>
+  .checkWifi {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border-top: 3px solid red;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    gap: 10px;
+    margin-top: -25%;
+    visibility: hidden;
+    transition: all 0.7s ease;
+    position: absolute;
+    top: 10px;
+    .show {
+      margin-top: 0px;
+      visibility: visible;
+    }
+    .wifiIcon {
+      background-color: red;
+      color: white;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 20px;
+    }
+    .checkContent {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      h3 {
+        font-size: 20px;
+        // color: red;
+      }
+
+      p {
+        font-size: 14px;
+        color: #666;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+
+      button {
+        // display: ;
+        width: 100px;
+        border: none;
+        outline: none;
+        background-color: red;
+        color: white;
+        border-radius: 7px;
+        padding: 5px 10px;
+        cursor: pointer;
+        @include btn();
+      }
+    }
+  }
+
   // dictionary app =========>>
   .dicApp {
     width: 400px;
@@ -90,7 +153,8 @@
       }
       #pressEnterWord {
         color: rgb(7, 181, 82);
-        font-size: 17px;
+        // color: grey;
+        font-size: 16px;
         text-transform: capitalize;
       }
 
@@ -102,6 +166,22 @@
           color: rgb(7, 181, 82);
           font-weight: bold;
         }
+      }
+
+      #readMore {
+        cursor: pointer;
+        background-color: rgb(7, 181, 82);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        outline: none;
+        border-radius: 20px;
+        font-size: 15px;
+        @include btn();
+        text-decoration: none;
+      }
+      .readBtnLi {
+        margin-top: 15px;
       }
 
       .details {
@@ -136,3 +216,7 @@
     }
   }
 }
+
+// .online{
+//   background-color:rgb(7, 181, 82);
+// }
