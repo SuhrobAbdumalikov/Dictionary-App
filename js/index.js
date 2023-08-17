@@ -4,10 +4,6 @@ const allData = document.querySelector("#allData");
 const soundIcon = document.querySelector("#soundIcon");
 const sound = document.querySelector("#sound");
 
-// .addEventListener('click',() => {
-//     focus()
-// });
-
 //  ====>> APi URL <<====== //
 function AllInformation() {
   const APiURl = `https://api.dictionaryapi.dev/api/v2/entries/en/${searchInput.value}`;
