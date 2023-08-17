@@ -5,61 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./sass/style/main.css" />
-    <script src="https://kit.fontawesome.com/f35ca9bb4a.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/f35ca9bb4a.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Dictionary App</title>
-    <style>
-        h1{
-            color:#067964;
-        }
-    </style>
   </head>
   <body>
+    <audio id="sound"></audio>
     <div class="fullPage">
-        <!-- dictionary app start-->
-        <div class="dicApp">
-            <h2>Dictionary App</h2>
-            <div class="appInput">
-                <input type="text" id="searchInput" placeholder="Type To Search..."/>
-                <div class="searchBtn">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-            </div> 
-
-            <!-- data below input start -->
-            <div class="data">
-                <!-- Important message button click when input value empty -->
-                <!-- <p id="pressEnterWord">Type Any Word & pres enter to get meaning</p> -->
-
-                <!-- error  word is not found "404"-->
-                <!-- <p id="errorWord">can't find the meaning of <span>Input value</span>. Please Search again!</p> -->
-
-                <!-- Api data-->
-                <!-- <ul>
-                    <li class="details">
-                        <h3 class="type">word</h3>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </li>
-                    <li class="details">
-                        <h3 class="type">word</h3>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </li>
-                    <li class="details">
-                        <h3 class="type">word</h3>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </li>
-                    <li class="details">
-                        <h3 class="type">word</h3>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </li>
-                    <li class="details">
-                        <h3 class="type">word</h3>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </li>
-                </ul> -->
-            </div>
-            <!-- data below input end -->
+      <div class="dicApp">
+        <h2>Dictionary App</h2>
+        <div class="appInput">
+          <input type="text" id="searchInput" placeholder="Type To Search..." />
+          <div class="searchBtn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
         </div>
-        <!-- dictionary app end -->
+        <div class="data" id="allData"></div>
+      </div>
     </div>
     <script src="./js/index.js"></script>
   </body>
