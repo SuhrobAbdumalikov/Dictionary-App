@@ -1,5 +1,6 @@
 const searchInput = document.querySelector("#searchInput");
 const searchBtn = document.querySelector(".searchBtn");
+const dictionaryApp = document.querySelector(".dicApp");
 const allData = document.querySelector("#allData");
 const soundIcon = document.querySelector("#soundIcon");
 const sound = document.querySelector("#sound");
@@ -10,26 +11,12 @@ const wifiIcon = document.querySelector(".wifiIcon");
 const titleWifi = document.querySelector("#title");
 const pTitle = document.querySelector("#pTitle");
 const reconnectBtn = document.querySelector("#reconnectBtn");
+const NoAccess = document.querySelector(".NoAccess");
+const countTime = document.querySelector("#countTime");
+const WIcon = document.querySelector(".wifiIcon i");
 
 // ======>> check connection <<=========
-// if (navigator.onLine) {
-//   console.log("oneline");
-//   checkWifi.style.marginTop = 0;
-//   checkWifi.style.visibility = "visible";
-//   checkWifi.style.borderTop = "3px solid #26b126";
-//   wifiIcon.style.backgroundColor = "#26b126";
-//   titleWifi.textContent = "You are now online";
-//   reconnectBtn.style.backgroundColor = "#26b126";
-//   reconnectBtn.textContent = "Restore";
-//   return setTimeout(() => {
-//     checkWifi.style.marginTop = 0;
-//     checkWifi.style.visibility = "visible";
-//   }, 5000);
-// } else {
-//   console.log("offnline");
-//   checkWifi.classList.remove("online");
-//   checkWifi.classList.add("show");
-// }
+let timer = 12;
 
 if (navigator.onLine) {
   setTimeout(() => {
@@ -39,22 +26,15 @@ if (navigator.onLine) {
     checkWifi.style.borderTop = "3px solid #26b126";
     wifiIcon.style.backgroundColor = "#26b126";
     titleWifi.textContent = "You are now online";
+    pTitle.textContent = "Your device is now connected to the Internet!";
     reconnectBtn.style.backgroundColor = "#26b126";
-    reconnectBtn.textContent = "Restore";
+    reconnectBtn.textContent = "Ok";
+  }, 1000);
+  setInterval(() => {
+    timer--;
+    countTime.innerHTML = timer;
   }, 1000);
 }
-// }else{
-//   setTimeout(() => {
-//     checkWifi.style.marginTop = '-25%';
-//     checkWifi.style.visibility = "hidden";
-//     titleWifi.textContent = "Online";
-//     checkWifi.style.borderTop = "3px solid #26b126";
-//     wifiIcon.style.backgroundColor = "#26b126";
-//     titleWifi.textContent = "You are now online";
-//     reconnectBtn.style.backgroundColor = "#26b126";
-//     reconnectBtn.textContent = "Restore";
-//   }, 2000);
-// }
 
 window.addEventListener("online", () => {
   setTimeout(() => {
@@ -63,8 +43,12 @@ window.addEventListener("online", () => {
     checkWifi.style.borderTop = "3px solid #26b126";
     wifiIcon.style.backgroundColor = "#26b126";
     titleWifi.textContent = "You are now online";
+    pTitle.textContent = "Your device is now connected to the Internet :)";
     reconnectBtn.style.backgroundColor = "#26b126";
-    reconnectBtn.textContent = "Restore";
+    reconnectBtn.textContent = "Ok";
+    dictionaryApp.style.display = "block";
+    NoAccess.style.display = "none";
+    WIcon.className = "uil uil-wifi";
   }, 1000);
 });
 
@@ -73,18 +57,15 @@ window.addEventListener("offline", () => {
     checkWifi.style.marginTop = "0";
     checkWifi.style.visibility = "visible";
     titleWifi.textContent = "You are offline now";
+    pTitle.innerHTML = ` Your network is unavailable.We will attempt to<br> reconnect you!`;
     checkWifi.style.borderTop = "3px solid red";
     wifiIcon.style.backgroundColor = "red";
     reconnectBtn.style.backgroundColor = "red";
     reconnectBtn.textContent = "Reconnect";
-  }, 1000);
-});
-
-reconnectBtn.addEventListener("click", () => {
-  if (reconnectBtn.textContent === "Restore") {
-    checkWifi.style.marginTop = "-25%";
-    checkWifi.style.visibility = "hidden";
-  }
+    dictionaryApp.style.display = "none";
+    NoAccess.style.display = "block";
+    WIcon.className = "uil uil-wifi-slash";
+  });
 });
 
 //  ====>> APi URL and Dictionary App <<====== //
@@ -153,5 +134,24 @@ searchBtn.addEventListener("click", () => {
     localStorage.setItem("fullInformation", searchInput.value);
   } else {
     allData.innerHTML = `<p id="pressEnterWord">Type Any Word & pres enter to get meaning</p>`;
+  }
+});
+
+reconnectBtn.addEventListener("click", () => {
+  if (reconnectBtn.textContent === "Ok") {
+    checkWifi.style.marginTop = "-25%";
+    checkWifi.style.visibility = "hidden";
+  } else if (
+    reconnectBtn.textContent === "Reconnect" ||
+    reconnectBtn.textContent === "Try Again"
+  ) {
+    checkWifi.style.marginTop = "-25%";
+    checkWifi.style.visibility = "hidden";
+    setTimeout(() => {
+      checkWifi.style.marginTop = "0";
+      checkWifi.style.visibility = "visible";
+      reconnectBtn.textContent = "Try Again";
+      pTitle.textContent = `We can't connect your Internet 🙁 Please Try Again!`;
+    }, 1000);
   }
 });

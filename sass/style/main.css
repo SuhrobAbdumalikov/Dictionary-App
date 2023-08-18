@@ -72,6 +72,17 @@
 .fullPage .checkWifi .checkContent button:hover {
   opacity: 0.8;
 }
+.fullPage .NoAccess {
+  width: 400px;
+  background-color: #fff;
+  padding: 25px 30px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  border-radius: 15px;
+  color: red;
+  text-align: center;
+  font-size: 20px;
+  display: none;
+}
 .fullPage .dicApp {
   width: 400px;
   background-color: #fff;
@@ -130,6 +141,8 @@
   max-height: 200px;
   display: flex;
   flex-direction: column;
+  color: black;
+  text-align: start;
 }
 .fullPage .dicApp .data li {
   list-style: none;
@@ -205,4 +218,8 @@
 .fullPage .dicApp .data .details p {
   font-size: 12px;
   margin: 4px 0;
+}
+
+#NoInternetIcon {
+  font-size: 30px;
 }/*# sourceMappingURL=main.css.map */

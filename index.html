@@ -14,12 +14,6 @@
       crossorigin="anonymous"
     ></script>
     <title>Dictionary App</title>
-    <style>
-      h1{
-        /* visibility: visible; */
-        color: #26b126;
-      }
-    </style>
   </head>
   <body>
     <audio id="sound"></audio>
@@ -27,18 +21,27 @@
       <!-- Check online or offline -->
       <div class="checkWifi">
         <div class="wifiIcon">
-          <i class="uil uil-wifi-slash"></i>
+          <i class="uil uil-wifi"></i>
         </div>
         <div class="checkContent">
           <h3 id="title">You are offline now</h3>
           <p id="pTitle">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non,<br>
-            maxime dolores deserunt animi <br> maiores numquam nemo molestiae 
+            <!-- Your device is now connected to the Internet! -->
+            Your network is unavailable.We will attempt to<br />
+            reconnect you in <span id="countTime">0 seconds</span>
           </p>
-          <button id="reconnectBtn">Reconnect</button>
+          <button id="reconnectBtn">Ok</button>
         </div>
       </div>
       <!-- ==================== -->
+
+      <!-- outCheck -->
+      <div class="NoAccess">
+        <h4>Please Check Your Internet Access!</h4>
+        <i class="uil uil-cloud-slash" id="NoInternetIcon"></i>
+      </div>
+      <!-- ======= -->
+
       <!-- Dictionary app -->
       <div class="dicApp">
         <h2>Dictionary App</h2>
